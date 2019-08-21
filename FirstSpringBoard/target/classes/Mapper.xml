@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd"> 
+
+<mapper namespace="com.SpringBoard.mappers.BoardMapper">	<!--mapper의 이름입니다. 우리는 mapper 인터페이스를 사용할 것이기 때문에 일단 이렇게 입력해주세요. -->
+	<resultMap type="board" id="boardResult">		<!--리턴타입을 설정합니다. resultMap없이 그냥 도메인 객체를 리턴타입으로 지정해도 되지만 resultMap을 사용하면 내가 원하는 칼럼과 객체의 필드를 맵핑해서 리턴타입을 선택할 수 있어요 -->	
+        <id property="CD_COMPANY" column="CD_COMPANY"></id>
+        <result property="NO_EMP" column="NO_EMP"></result>
+        <result property="NM_KOR" column="NM_KOR"></result>
+        <result property="NM_ENG" column="NM_ENG"></result>        
+    </resultMap>
+    
+    <select id="findAllBoard" resultMap="boardResult"> <!-- 리턴타입은 위에서 설정해둔 resultMap입니다. id는 Mapper 인터페이스나 DAO에서 직접 호출할 떄 사용됩니다. -->
+    select * from MA_EMP where cd_company = '0327';    
+    </select>
+    
+   <!--  <insert id="insertBoard" parameterType="board">
+    insert into MA_EMP(CD_COMPANY, NO_EMP, NM_KOR, NM_ENG)
+    values(#{CD_COMPANY}, #{NO_EMP}, #{NM_KOR}, #{NM_ENG});
+    </insert> -->
+    
+     <insert id="insertBoard" parameterType="board">
+    insert into P_WHR_Z_OJT_SIMSIM(CD_COMPANY, NM_EMP,FG_GAME)
+    values(#{CD_COMPANY}, #{NO_EMP},'test');
+    </insert> 
+    
+</mapper>
