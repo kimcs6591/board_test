@@ -11,17 +11,29 @@
     </resultMap>
     
     <select id="findAllBoard" resultMap="boardResult"> <!-- 리턴타입은 위에서 설정해둔 resultMap입니다. id는 Mapper 인터페이스나 DAO에서 직접 호출할 떄 사용됩니다. -->
-    select * from MA_EMP where cd_company = '0327';    
+    select * from MA_Z_TEST_EMP;    
     </select>
     
-   <!--  <insert id="insertBoard" parameterType="board">
-    insert into MA_EMP(CD_COMPANY, NO_EMP, NM_KOR, NM_ENG)
-    values(#{CD_COMPANY}, #{NO_EMP}, #{NM_KOR}, #{NM_ENG});
-    </insert> -->
+    <select id = "findBoardByEMP" parameterType="map" resultMap="boardResult">
+    select * from MA_Z_TEST_EMP WHERE CD_COMPANY = #{CD_COMPANY} AND NO_EMP = #{NO_EMP}    
+    </select>
     
-     <insert id="insertBoard" parameterType="board">
+    <insert id="insertBoard" parameterType="board">
+    INSERT INTO MA_Z_TEST_EMP (CD_COMPANY, NO_EMP, NM_KOR, NM_ENG)
+    VALUES (#{CD_COMPANY}, #{NO_EMP}, #{NM_KOR}, #{NM_ENG})
+    </insert>
+    
+    <update id = "updateBoard" parameterType="board">
+    UPDATE MA_Z_TEST_EMP SET NM_KOR = #{NM_KOR}, NM_ENG = #{NM_ENG} WHERE CD_COMPANY = #{CD_COMPANY} AND NO_EMP = #{NO_EMP}
+    </update>
+    
+    <delete id = "deleteBoard" parameterType="String">
+    DELETE FROM MA_Z_TEST_EMP WHERE CD_COMPANY = #{CD_COMPANY} AND NO_EMP = #{NO_EMP}
+    </delete>
+    
+     <!-- <insert id="insertBoard" parameterType="board">
     insert into P_WHR_Z_OJT_SIMSIM(CD_COMPANY, NM_EMP,FG_GAME)
     values(#{CD_COMPANY}, #{NO_EMP},'test');
-    </insert> 
+    </insert>  -->
     
 </mapper>
