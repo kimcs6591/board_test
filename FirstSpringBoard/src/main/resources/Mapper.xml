@@ -27,7 +27,7 @@
     UPDATE MA_Z_TEST_EMP SET NM_KOR = #{NM_KOR}, NM_ENG = #{NM_ENG} WHERE CD_COMPANY = #{CD_COMPANY} AND NO_EMP = #{NO_EMP}
     </update>
     
-    <delete id = "deleteBoard" parameterType="String">
+    <delete id = "deleteBoard" parameterType="map">
     DELETE FROM MA_Z_TEST_EMP WHERE CD_COMPANY = #{CD_COMPANY} AND NO_EMP = #{NO_EMP}
     </delete>
     

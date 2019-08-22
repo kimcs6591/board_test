@@ -17,7 +17,7 @@ public interface BoardMapper {
 	List<BoardVO> findBoardByEMP(@Param("CD_COMPANY") String CD_COMPANY, @Param("NO_EMP") String NO_EMP);
 	void insertBoard(BoardVO board);
 	void updateBoard(BoardVO board);
-	void deleteBoard(String CD_COMPANY, String NO_EMP);
+	void deleteBoard(@Param("CD_COMPANY") String CD_COMPANY, @Param("NO_EMP") String NO_EMP);
 	
 	
 }

@@ -3,21 +3,25 @@
   PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-config.dtd">
 <configuration>
-	<properties resource="db.properties" />			<!-- 어디를 참조할지 -->
+	<!-- <properties resource="db.properties" />			어디를 참조할지 -->
  	 <typeAliases>
 		<typeAlias type="com.SpringBoard.domain.BoardVO" alias="board"></typeAlias>
 	</typeAliases> 
-	<environments default="development">
+	
+								<!-- Spring을 통해서 DB 정보 관리하기 때문에 주석처리 -->
+								
+	<!-- <environments default="development">
 		<environment id="development">
-			<transactionManager type="JDBC" />		<!-- 트랜젝션 방식 설정. JDBC는 애플리케이션에서 트랜젝션을 관리하는 걸 의미한다.  -->
-			<dataSource type="POOLED">				<!-- 커넥션 풀을 사용하는지 설정 -->
+			<transactionManager type="JDBC" />		트랜젝션 방식 설정. JDBC는 애플리케이션에서 트랜젝션을 관리하는 걸 의미한다. 
+			<dataSource type="POOLED">				커넥션 풀을 사용하는지 설정
 				<property name="driver" value="${jdbc.driverClassName}" />
 				<property name="url" value="${jdbc.url}" />
 				<property name="username" value="${jdbc.username}" />
 				<property name="password" value="${jdbc.password}" />
 			</dataSource>
 		</environment>
-	</environments>
+	</environments> -->		
+	
 	<mappers>
 		<mapper resource="Mapper.xml" />		
 		<!-- SQL문을 저장하는 mapper 파일을 연결해주는 엘리먼트 -->
